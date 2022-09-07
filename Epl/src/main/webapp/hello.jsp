@@ -9,7 +9,7 @@
 <body>
 	<jsp:include page="menu.jsp" />
 	
-	<img  src="./upload2/epl5.png" text-align="center">
+	<img  src="./upload2/epl5.png" >
 	
 </body>
 </html>
