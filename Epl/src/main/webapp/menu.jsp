@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 
-<nav class="navbar navbar-expand- navbar-dark" style="background-color:rgb(54,1,47) ">
+<nav class="navbar navbar-expand- navbar-dark" style="background-color:rgb(88,88,88) ">
 	<div class = "container">
 		<div class = "navbar-header">
-			<a class = "navbar-brand" href="./hello.jsp" ><img alt="Premier League " src="./upload2/epl2.jpg" width="80">Premier League </a>
+			<a class = "navbar-brand" href="./hello.jsp" ><img alt="Premier League " src="./upload2/k1.jpg" width="80">K LEAGUE </a>
 		</div>
 		<div>
 			<ul class="navbar-nav mr-auto">
