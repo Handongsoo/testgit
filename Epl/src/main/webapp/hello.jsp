@@ -10,5 +10,6 @@
 	<jsp:include page="menu.jsp" />
 	
 	<img  src="./upload2/epl5.png" text-align="center">
+	
 </body>
 </html>
