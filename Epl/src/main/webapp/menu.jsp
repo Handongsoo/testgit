@@ -7,7 +7,7 @@
 		</div>
 		<div>
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#">로그인</a></li>
+				<li class="nav-item"><a class="nav-link" href="./login.jsp">로그인</a></li>
 			</ul>
 		</div>
 		<div>

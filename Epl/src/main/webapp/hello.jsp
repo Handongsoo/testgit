@@ -5,36 +5,47 @@
 	<link rel="stylesheet"
 	href="./resources/css/bootstrap.min.css" />
 <title>K-리그</title>
+
 </head>
 <body>
+<div style="width:1900px;" align="center">
 	<jsp:include page="menu.jsp" />
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="./upload2/k3.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./upload2/k2.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./upload2/k2.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+	<img src="./upload2/k3.jpg" width="100%" class="img-fluid" alt="Responsive image">
 	
+	<h3><strong>하이라이트</strong></h3> <div align= right ><a href="#" style="color:black;" >영상 더보기</a></div>
+	<hr style="border: inset 10px;">
+	<div>
+	 <iframe 
+        width="500" height="255" 
+        src="https://www.youtube.com/embed/7FsWq3LBTvc" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+	
+	<iframe 
+        width="500" height="255" 
+        src="https://www.youtube.com/embed/9P73On6O1l8" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+    
+    <iframe 
+        width="500" height="255" 
+        src="https://www.youtube.com/embed/PTEEoRATVL8" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+    </div>
+    
+	</div>
+	<hr >
+    
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
