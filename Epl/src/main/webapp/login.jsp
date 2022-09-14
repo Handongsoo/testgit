@@ -10,7 +10,7 @@
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron" style="background-color:white">
 		<div class="container">
-			<h1 class="display-4" text >로그인</h1>
+			<h1 class="display-4" text >K-LEAGUE 로그인</h1>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -35,8 +35,11 @@
 					<input type="password" class="form-control" placeholder="Password" 
 					name='password' required>
 				</div>
-				<button class="btn btn btn-lg btn-success btn-block"
-				type="submit">로그인</button>				
+				<button class="btn btn-outline-secondary"
+				type="submit">로그인</button>
+				
+				<a href="addMember.jsp"><button class="btn btn-outline-secondary"
+				type="button">회원가입</button></a>								
 			</form>
 		</div>
 	</div>
