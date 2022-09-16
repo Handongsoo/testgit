@@ -4,10 +4,10 @@
 <head>
 <link rel="stylesheet"
 	href="./resources/css/bootstrap.min.css" />
-<title>상품 삭제</title>
+<title>팀 삭제</title>
 <script type="text/javascript">
 	function deleteConfirm(name){
-		if (confirm("해당 상품을 삭제합니다!") == true)
+		if (confirm("해당 팀을 삭제합니다!") == true)
 			location.href = "./deleteTeam.jsp?name=" + name;
 		else
 			return;
@@ -18,7 +18,7 @@
 %>
 </head>
 <body>
-	
+	<div style="width:1900px;" align="center">
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
@@ -65,6 +65,7 @@
 				if (conn != null)
 					conn.close();
 			%>
+			</div>
 			</div>
 			<hr>
 			</div>

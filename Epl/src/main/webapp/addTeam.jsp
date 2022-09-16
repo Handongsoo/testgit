@@ -6,6 +6,7 @@
 <title>팀 등록</title>
 </head>
 <body>
+	<div style="width:1900px;" align="center">
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
@@ -55,6 +56,10 @@
 			</div>
 		</div>
 		</form>
+		</div>
 	</div>
+	<hr >
+    
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

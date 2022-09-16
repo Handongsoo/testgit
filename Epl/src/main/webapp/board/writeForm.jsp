@@ -26,10 +26,11 @@
 	}
 </script>
 <body>
+	<div style="width:1900px;" align="center">
 	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">게시판</h1>
+			<h1 class="display-3">K-LEAGUE 게시판</h1>
 		</div>
 	</div>
 
@@ -68,6 +69,7 @@
 				</div>
 			</div>
 		</form>
+		</div>
 		<hr>
 	</div>
 	<jsp:include page="../footer.jsp" />

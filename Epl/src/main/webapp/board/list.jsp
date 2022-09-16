@@ -25,21 +25,23 @@
 </script>
 </head>
 <body>
+	<div style="width:1900px;" align="center">
 	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">게시판</h1>
+			<h1 class="display-3">K-LEAGUE 게시판</h1>
 		</div>
 	</div>
 	<div class="container">
 		<form action="<c:url value="./BoardListAction.do"/>" method="post">
 			<div>
 				<div class="text-right">
-					<span class="badge badge-success">전체 <%=total_record%>건	</span>
+					<span class="btn btn-outline-primary">전체 <%=total_record%>건	</span>
 				</div>
 			</div>
 			<div style="padding-top: 50px">
 				<table class="table table-hover">
+					<thead class="thead-dark">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -47,6 +49,7 @@
 						<th>조회</th>
 						<th>글쓴이</th>
 					</tr>
+					</thead>
 					<%
 						for (int j = 0; j < boardList.size(); j++) {
 							BoardDTO notice = (BoardDTO) boardList.get(j);
@@ -87,15 +90,16 @@
 								<option value="subject">제목에서</option>
 								<option value="content">본문에서</option>
 								<option value="name">글쓴이에서</option>
-						</select> <input name="text" type="text" /> <input type="submit" id="btnAdd" class="btn btn-primary " value="검색 " />
+						</select> <input name="text" type="text" /> <input type="submit" id="btnAdd" class="btn btn-outline-info"value="검색 " />
 						</td>
 						<td width="100%" align="right">
-							<a href="#" onclick="checkForm(); return false;" class="btn btn-primary">&laquo;글쓰기</a>
+							<a href="#" onclick="checkForm(); return false;" class="btn btn-outline-info">&laquo;글쓰기</a>
 						</td>
 					</tr>
 				</table>
 			</div>
 		</form>
+		</div>
 		<hr>
 	</div>
 	<jsp:include page="../footer.jsp" />
