@@ -41,7 +41,7 @@
 		</div>
 		<div>
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="gamedays.jsp">경기일정</a></li>
+				<li class="nav-item"><a class="nav-link" href="gameDay.jsp">경기일정</a></li>
 			</ul>
 		</div>
 		<div>

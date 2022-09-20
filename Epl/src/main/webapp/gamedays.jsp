@@ -1,93 +1,70 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link href='./resources/css/main.min.css' rel='stylesheet' />
-	<script src='./resources/js/ko.js'></script>
-    <script src='./resources/js/main.min.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.min.js"></script>
-    <script>
-		document.addEventListener('DOMContentLoaded', function() {
-			var calendarEl = document.getElementById('calendar');
-			var calendar = new FullCalendar.Calendar(calendarEl, {
-				  locale: "ko",
-				  initialView: 'dayGridMonth',
-				  headerToolbar: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-				  },
-				  googleCalendarApiKey: 'AIzaSyDfcE3cM8YX9Mt2hs-f5ffCqleYmPUGOvY',
-				  events: {
-				  googleCalendarId: 'tbm80iev5qgi30323iohv6icos@group.calendar.google.com',
-				  className: 'gcal-event' // an option!
-				  },
-				  eventClick: function(info) {
-					  let start_year = info.event.start.getUTCFullYear();
-					  let start_month = info.event.start.getMonth() + 1;
-					  let start_date = info.event.start.getUTCDate();
-					  let start_hour = info.event.start.getHours();
-					  let start_minute = info.event.start.getMinutes();
-					  let start_second = info.event.start.getSeconds();
-					  let end_hour = info.event.end.getHours();
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Full Calendar Example</title>
 
-					  let start = start_year + "-" + start_month + "-" + start_date + " " + start_hour + "ì ~ " + end_hour + "ì";
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.css" rel="stylesheet" type="text/css" />
 
-					  let attends = "";
-					  info.event.extendedProps.attachments.forEach(function(item) {
-						  attends += "<div><a href='"+item.fileUrl+"' target='_blank'>[ì²¨ë¶íì¼]</a></div>"
-					  });
+<script src="https://code.jquery.com/jquery-1.12.4.js"  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-					  if(!info.event.extendedProps.description) {
-						  info.event.extendedProps.description = "";
-					  }
-					  let contents = `
-						<div style='font-weight:bold; font-size:20px; margin-bottom:30px; text-align:center'>
-							${start}
-						</div>
-						<div style='font-size:18px; margin-bottom:20px'>
-							ì ëª©: ${info.event.title}
-						</div>
-						<div style='width:500px'>
-							${info.event.extendedProps.description}
-							${attends}
-						</div>
-					  `;
-					  
-					  $("#popup").html(contents);
-					  $("#popup").bPopup({
-						speed: 650,
-						transition: 'slideIn',
-						transitionClose: 'slideBack',
-						position: [($(document).width()-500)/2, 30] //x, y
-					  });
-					  info.jsEvent.stopPropagation();
-					  info.jsEvent.preventDefault();
-				  }
-			});
-			calendar.render();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/moment/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/locales/ko.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+		setCalendar();
+	});
+
+	function setCalendar(){
+
+		var calendarEl = document.getElementById('calendar');
+
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+			},
+			defaultView: 'timeGridWeek',
+			locale: 'ko',
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			allDaySlot: false,
+			eventLimit: true, // allow "more" link when too many events
+			minTime: '10:00:00',
+			maxTime: '24:00:00',
+			contentHeight: 'auto',
+			eventSources: [{
+				events: function(info, successCallback, failureCallback) {
+					$.getJSON( "testDB.jsp", function( data ) {						
+						successCallback(data);
+					});
+				}
+			}]
 		});
-    </script>
-    <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
-    
-    <title>경기 일정</title>
-  </head>
-  <body>
-  <div style="width: 1900px;" align="center">
-		<jsp:include page="menu.jsp" />
+				
+		calendar.render();
 
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="display-4" text>K-LEAGUE 경기 일정</h1>
-			</div>
-		</div>
-    <div id='calendar'></div>
-	<div id='popup' style="width:500px; height:600px; display:none; background-color:white; padding:20px; border-radius:14px; border:2px solid #eeeeee"></div>
-	</div>
-	<hr>
+	}
 
-	<jsp:include page="footer.jsp" />
-	
-  </body>
+	</script>
+</head>
+<body>
+	<h1>FullCalendar 예제 입니다.</h1>
+	<div id="calendar"></div>
+</body>
 </html>

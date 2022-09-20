@@ -11,16 +11,13 @@ public class BoardDAO {
 
 	private static BoardDAO instance;
 	
-//	private BoardDAO() {
-//		
-//	}
 
 	public static BoardDAO getInstance() {
 		if (instance == null)
 			instance = new BoardDAO();
 		return instance;
 	}	
-	//board 테이블의 레코드 개수
+	
 	public int getListCount(String items, String text) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -59,7 +56,7 @@ public class BoardDAO {
 		}		
 		return x;
 	}
-	//board 테이블의 레코드 가져오기
+	
 	public ArrayList<BoardDTO> getBoardList(int page, int limit, String items, String text) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -80,7 +77,6 @@ public class BoardDAO {
 
 		try {
 			conn = DBConnection.getConnection();
-//			pstmt = conn.prepareStatement(sql);
 			pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = pstmt.executeQuery();
 
@@ -118,7 +114,7 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//member 테이블에서 인증된 id의 사용자명 가져오기
+
 	public String getLoginNameById(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -154,7 +150,7 @@ public class BoardDAO {
 		return null;
 	}
 
-	//board 테이블에 새로운 글 삽입히가
+	
 	public void insertBoard(BoardDTO board)  {
 
 		
@@ -190,7 +186,7 @@ public class BoardDAO {
 			}		
 		}		
 	} 
-	//선택된 글의 조회수 증가하기
+
 	public void updateHit(int num) {
 
 		Connection conn = null;
@@ -230,7 +226,7 @@ public class BoardDAO {
 			}			
 		}
 	}
-	//선택된 글 상세 내용 가져오기
+
 	public BoardDTO getBoardByNum(int num, int page) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -275,7 +271,7 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//선택된 글 내용 수정하기
+	
 	public void updateBoard(BoardDTO board) {
 
 		Connection conn = null;
@@ -310,7 +306,7 @@ public class BoardDAO {
 			}		
 		}
 	} 
-	//선택된 글 삭제하기
+	
 	public void deleteBoard(int num) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
